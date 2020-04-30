@@ -12,7 +12,7 @@ class notworking():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/server/files/" + server_id + "/list"
+        url = "https://api.minehut.com/file/" + server_id + "/list"
         response = requests.get(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j

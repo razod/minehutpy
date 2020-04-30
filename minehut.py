@@ -346,3 +346,25 @@ class minehut():
         response = requests.post(url, headers=headers ,verify=False, json=reqbody)
         j = json.loads(response.content)
         return j
+
+    def listRootFiles(self, token, xsessionid, server_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/file/" + server_id + "/list"
+        response = requests.get(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
+
+    def readFilePath(self, token, xsessionid, server_id, file_path):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/file/" + server_id + "/read" + file_path
+        response = requests.get(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
