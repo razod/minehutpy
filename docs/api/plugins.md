@@ -7,6 +7,6 @@ get info about minehut plugins
 
 `installPlugin(token, xsessionid, server_id, plugin_id)` - Install a plugin to your minehut server.
 
-`removePlugin(self, token, xsessionid, server_id, plugin_id)` - Remove a plugin from your minehut server.
+`removePlugin(token, xsessionid, server_id, plugin_id)` - Remove a plugin from your minehut server.
 
-`removePluginData(self, token, xsessionid, server_id, plugin_id)` - Remove a plugins config from your server.
+`removePluginData(token, xsessionid, server_id, plugin_id)` - Remove a plugins config from your server.

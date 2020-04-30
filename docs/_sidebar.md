@@ -1,6 +1,6 @@
 * [Home](/)
 * [FAQ](api/other/faq.md)
-* [Getting Started](api/other/gettingstarted.md)
 * [Known Errors](api/other/errors.md)
+* [Getting Started](api/other/gettingstarted.md)
 * [Servers](api/servers.md)
 * [Plugins](api/plugins.md)
