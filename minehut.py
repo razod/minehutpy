@@ -201,7 +201,7 @@ class minehut():
         j = json.loads(response.content)
         return j
 
-    def sendCommand(self, token, xsessionid, server_id, command):
+    def sendCommandToServer(self, token, xsessionid, server_id, command):
         headers = {
             'content-type': 'application/json; charset=utf-8',
             'x-session-id': xsessionid,
@@ -209,6 +209,20 @@ class minehut():
         }
         reqbody = {
             "command": command
+        }
+        url = "https://api.minehut.com/servers/" + server_id + "/reset_all"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
+
+    def changeServerName(self, token, xsessionid, server_id, new_name):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "name": new_name
         }
         url = "https://api.minehut.com/servers/" + server_id + "/reset_all"
         response = requests.post(url, headers=headers ,verify=False, json=reqbody)
