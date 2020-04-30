@@ -256,4 +256,15 @@ class minehut():
         response = requests.post(url, headers=headers ,verify=False, json=reqbody)
         j = json.loads(response.content)
         return j
+
+    def saveServer(self, token, xsessionid, server_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/server/" + server_id + "/save"
+        response = requests.post(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
     
