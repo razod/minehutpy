@@ -1,0 +1,5 @@
+* [Home](/)
+* [FAQ](api/faq.md)
+* [Getting Started](api/gettingstarted.md)
+* [Servers](api/servers.md)
+* [Plugins](api/plugins.md)
