@@ -4,6 +4,10 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+# Minehut.py
+# Author: Razod (Mason Trv) <https://github.com/razod>
+# License: MIT
+
 class minehut():
 
     def __init__(self):
