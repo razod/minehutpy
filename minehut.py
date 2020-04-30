@@ -294,14 +294,14 @@ class minehut():
         j = json.loads(response.content)
         return j
 
-    def getServerPlugins(self, token, xsessionid, server_id):
+    def getAllPlugins(self, token, xsessionid, server_id):
         headers = {
             'content-type': 'application/json; charset=utf-8',
             'x-session-id': xsessionid,
             'Authorization': token
         }
         url = "https://api.minehut.com/server/" + server_id + "/plugins"
-        response = requests.post(url, headers=headers ,verify=False)
+        response = requests.get(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
     
