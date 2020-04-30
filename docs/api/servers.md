@@ -29,3 +29,13 @@ if you don't know how to get your token or xsessionid, go to the [**faq**](api/o
 `sendCommandToServer(token, xsessionid, server_id, command)` - Send a command to your server.
 
 `changeServerName(token, xsessionid, server_id, new_name)` - Change a server's name. 
+
+`changeServerMOTD(token, xsessionid, server_id, new_motd)` - Change a server's motd.
+
+`changeServerVisibility(token, xsessionid, server_id, visibility)` - Change a server's visibility. **Note:** Visibility **MUST** BE `true/false`
+
+`saveServer(token, xsessionid, server_id)` - Save a server's world.
+
+`resetServerWorld(token, xsessionid, server_id)` - Reset a server's world.
+
+`editServerProperties(token, xsessionid, server_id, field, value)` - Edit a server property. **NOTE:** field can only be `max_players`, `level_type`, `level_name`, `generator_settings`, `gamemode`, `force_gamemode`, `pvp`, `spawn_mobs`, `spawn_animals`, `allow_flight`, `generator_settings`, `difficulty`, `hardcore`, `enable_command_block`, `announce_player_achievements`, `allow_nether`, `generate_structures`, or `resource_pack`.
