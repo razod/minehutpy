@@ -123,4 +123,37 @@ class minehut():
         response = requests.get(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
+
+    def getServerStatus(self, token, xsessionid, server_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/servers/" + server_id + "/status"
+        response = requests.get(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
+
+    def hibernationServerStart(self, token, xsessionid, server_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/servers/" + server_id + "/start_service"
+        response = requests.post(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
+
+    def startServer(self, token, xsessionid, server_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/servers/" + server_id + "/start"
+        response = requests.post(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
     
