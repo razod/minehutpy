@@ -4,3 +4,4 @@
 * [Getting Started](api/other/gettingstarted.md)
 * [Servers](api/servers.md)
 * [Plugins](api/plugins.md)
+* [User](api/user.md)

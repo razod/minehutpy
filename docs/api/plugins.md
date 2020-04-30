@@ -1,5 +1,6 @@
 # Plugins
 get info about minehut plugins
+if you don't know how to get your token or xsessionid, go to the [**faq**](api/other/faq)
 
 `getPublicPlugins()` - Get information about all plugin minehut plugins!
 
