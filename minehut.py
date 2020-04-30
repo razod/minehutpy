@@ -278,4 +278,19 @@ class minehut():
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
+
+    def editServerProperties(self, token, xsessionid, server_id, field, value):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "field": field,
+            "value": value,
+        }
+        url = "https://api.minehut.com/server/" + server_id + "/edit_server_properties"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
     
