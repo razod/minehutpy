@@ -10,9 +10,9 @@ if you don't know how to get your token or xsessionid, go to the [**faq**](api/o
 
 `createServer(token, xsessionid, server_name)` - Create a server.
 
-`getServerData(token, xsessionid, server_id)` - Get server data from a server.
+`getServerData(token, xsessionid, server_id)` - Get server data of a server.
 
-`getServerStatus(token, xsessionid, server_id)` - Get the status of the server (Starting, stopping, etc). 
+`getServerStatus(token, xsessionid, server_id)` - Get the status of a server (Starting, stopping, etc). 
 
 `hibernationServerStart(token, xsessionid, server_id)` - Start a server when it is in hibernation.
 
@@ -27,3 +27,5 @@ if you don't know how to get your token or xsessionid, go to the [**faq**](api/o
 `resetServer(token, xsessionid, server_id)` - Reset your server.
 
 `sendCommandToServer(token, xsessionid, server_id, command)` - Send a command to your server.
+
+`changeServerName(token, xsessionid, server_id, new_name)` - Change a server's name. 
