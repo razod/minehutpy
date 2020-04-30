@@ -242,4 +242,18 @@ class minehut():
         response = requests.post(url, headers=headers ,verify=False, json=reqbody)
         j = json.loads(response.content)
         return j
+
+    def changeServerVisibility(self, token, xsessionid, server_id, visibility):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "visibility": visibility
+        }
+        url = "https://api.minehut.com/server/" + server_id + "/visibility"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
     
