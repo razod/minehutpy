@@ -178,4 +178,15 @@ class minehut():
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
+
+    def repairServerFiles(self, token, xsessionid, server_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/servers/" + server_id + "/repair_files"
+        response = requests.post(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
     
