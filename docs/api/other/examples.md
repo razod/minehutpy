@@ -1,5 +1,10 @@
+# Examples
+
+Here a few examples you can use to help yourself.
+
+# Login through command line.
+```python
 from minehut import minehut
-import json
 
 m = minehut()
 
@@ -8,21 +13,20 @@ def login():
     password = str(input("password? "))
     print(m.userLogin(email, password))
 
-def getServers():
-    print(m.getServers())
+login()
+```
 
-sessionid = "my x-session-id"
-token = "my token"
-serverid = "my server id"
+# Get the max players of a server
+```python
+from minehut import minehut
+import json
+
+m = minehut()
 
 def getServerMaxPlayers(srv):
     j = json.dumps(m.getServerByName(srv))
     jso = json.loads(j)
     return jso["server"]['maxPlayers']
 
-def main():
-    # login()
-    # getServers()
-    print(getServerMaxPlayers("warzone"))
-
-main()
+print(getServerMaxPlayers("warzone"))
+```
