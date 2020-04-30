@@ -42,15 +42,27 @@ class minehut():
         j = json.loads(response.content)
         return j
 
-    def userSignup(self, email, password):
+    def userSignup(self, email):
         headers = {
             'content-type': 'application/json; charset=utf-8',
         }
         requestbody = {
             "email": email,
-            "password": password,
+            "birthday": "1986-01-02T00:05:40.082Z",
         }
-        response = requests.post('https://api.minehut.com/users/login', headers=headers ,verify=False, json=requestbody)
+        response = requests.post('https://api.minehut.com/users/signup', headers=headers ,verify=False, json=requestbody)
+        j = json.loads(response.content)
+        return j
+
+    def userConfirmEmail(self, code, password):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+        }
+        requestbody = {
+            "email_code": code,
+            "password": password
+        }
+        response = requests.post('https://api.minehut.com/users/confirm_email', headers=headers ,verify=False, json=requestbody)
         j = json.loads(response.content)
         return j
 
