@@ -1,4 +1,5 @@
 from minehut import minehut
+import json
 
 m = minehut()
 
@@ -14,12 +15,14 @@ sessionid = "my x-session-id"
 token = "my token"
 serverid = "my server id"
 
-def getServer(srv):
-    print(m.getServerByName(srv))
+def getServerMaxPlayers(srv):
+    j = json.dumps(m.getServerByName(srv))
+    jso = json.loads(j)
+    print(jso["server"]['maxPlayers'])
 
 def main():
     # login()
     # getServers()
-    getServer("warzone")
+    getServerMaxPlayers("warzone")
 
 main()
