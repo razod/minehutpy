@@ -200,4 +200,18 @@ class minehut():
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
+
+    def sendCommand(self, token, xsessionid, server_id, command):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "command": command
+        }
+        url = "https://api.minehut.com/servers/" + server_id + "/reset_all"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
     
