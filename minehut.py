@@ -305,3 +305,44 @@ class minehut():
         j = json.loads(response.content)
         return j
     
+    def installPlugin(self, token, xsessionid, server_id, plugin_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "plugin": plugin_id,
+        }
+        url = "https://api.minehut.com/server/" + server_id + "/install_plugin"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
+
+    def removePlugin(self, token, xsessionid, server_id, plugin_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "plugin": plugin_id,
+        }
+        url = "https://api.minehut.com/server/" + server_id + "/remove_plugin"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
+
+    def removePluginData(self, token, xsessionid, server_id, plugin_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "plugin": plugin_id,
+        }
+        url = "https://api.minehut.com/server/" + server_id + "/remove_plugin_data"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
