@@ -112,4 +112,15 @@ class minehut():
         response = requests.post('https://api.minehut.com/servers/create', headers=headers ,verify=False, json=reqbody)
         j = json.loads(response.content)
         return j
+
+    def getServerData(self, token, xsessionid, server_id):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/servers/" + server_id + "/server_data"
+        response = requests.get(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
     
