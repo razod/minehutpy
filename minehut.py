@@ -119,7 +119,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/server_data"
+        url = "https://api.minehut.com/server/" + server_id + "/server_data"
         response = requests.get(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -130,7 +130,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/status"
+        url = "https://api.minehut.com/server/" + server_id + "/status"
         response = requests.get(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -141,7 +141,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/start_service"
+        url = "https://api.minehut.com/server/" + server_id + "/start_service"
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -152,7 +152,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/start"
+        url = "https://api.minehut.com/server/" + server_id + "/start"
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -163,7 +163,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/shutdown"
+        url = "https://api.minehut.com/server/" + server_id + "/shutdown"
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -174,7 +174,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/destroy_service"
+        url = "https://api.minehut.com/server/" + server_id + "/destroy_service"
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -185,7 +185,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/repair_files"
+        url = "https://api.minehut.com/server/" + server_id + "/repair_files"
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -196,7 +196,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/reset_all"
+        url = "https://api.minehut.com/server/" + server_id + "/reset_all"
         response = requests.post(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
@@ -210,7 +210,7 @@ class minehut():
         reqbody = {
             "command": command
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/reset_all"
+        url = "https://api.minehut.com/server/" + server_id + "/send_command"
         response = requests.post(url, headers=headers ,verify=False, json=reqbody)
         j = json.loads(response.content)
         return j
@@ -224,7 +224,21 @@ class minehut():
         reqbody = {
             "name": new_name
         }
-        url = "https://api.minehut.com/servers/" + server_id + "/reset_all"
+        url = "https://api.minehut.com/server/" + server_id + "/change_name"
+        response = requests.post(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
+
+    def changeServerMOTD(self, token, xsessionid, server_id, new_motd):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "motd": new_motd
+        }
+        url = "https://api.minehut.com/server/" + server_id + "/change_motd"
         response = requests.post(url, headers=headers ,verify=False, json=reqbody)
         j = json.loads(response.content)
         return j
