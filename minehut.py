@@ -4,7 +4,7 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Minehut.py
+# Minehut.py v1.1.0
 # Author: Razod (Mason Trv) <https://github.com/razod>
 # License: MIT
 
@@ -362,13 +362,64 @@ class minehut():
         j = json.loads(response.content)
         return j
 
-    def readFilePath(self, token, xsessionid, server_id, file_path):
+    def listFileDir(self, token, xsessionid, server_id, directory):
         headers = {
             'content-type': 'application/json; charset=utf-8',
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/file/" + server_id + "/read" + file_path
+        url = "https://api.minehut.com/file/" + server_id + "/list/" + file_path
         response = requests.get(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
+
+    def readFile(self, token, xsessionid, server_id, file_path):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/file/" + server_id + "/read/" + file_path
+        response = requests.get(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
+        
+    def editFile(self, token, xsessionid, server_id, file_path, content):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "content": content
+        }
+        url = "https://api.minehut.com/file/" + server_id + "/edit/" + file_path
+        response = requests.get(url, headers=headers ,verify=False, json=reqbody)
+        j = json.loads(response.content)
+        return j
+
+    def deleteFile(self, token, xsessionid, server_id, file_path):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        url = "https://api.minehut.com/file/" + server_id + "/delete/" + file_path
+        response = requests.get(url, headers=headers ,verify=False)
+        j = json.loads(response.content)
+        return j
+
+    def createFolder(self, token, xsessionid, server_id, path, name):
+        headers = {
+            'content-type': 'application/json; charset=utf-8',
+            'x-session-id': xsessionid,
+            'Authorization': token
+        }
+        reqbody = {
+            "directory": path,
+            "name": name
+        }
+        url = "https://api.minehut.com/file/" + server_id + "/folder/create"
+        response = requests.get(url, headers=headers ,verify=False, json=reqbody)
         j = json.loads(response.content)
         return j
