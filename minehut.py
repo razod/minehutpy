@@ -368,7 +368,7 @@ class minehut():
             'x-session-id': xsessionid,
             'Authorization': token
         }
-        url = "https://api.minehut.com/file/" + server_id + "/list/" + file_path
+        url = "https://api.minehut.com/file/" + server_id + "/list/" + directory
         response = requests.get(url, headers=headers ,verify=False)
         j = json.loads(response.content)
         return j
